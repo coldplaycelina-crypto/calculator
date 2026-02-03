@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calculator.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <h1>🔢 计算器</h1>
+
+        <form method="POST" action="/calculate">
+            <div class="input-group">
+                <label for="num1">第一个数字</label>
+                <input type="number" id="num1" name="num1" value="{{ num1|default('') }}" step="any" required>
+            </div>
+
+            <div class="input-group">
+                <label for="num2">第二个数字（除开根号外都需要）</label>
+                <input type="number" id="num2" name="num2" value="{{ num2|default('') }}" step="any">
+            </div>
+
+            <div class="buttons">
+                <button type="submit" name="operation" value="add" class="btn-add">+ 加法</button>
+                <button type="submit" name="operation" value="subtract" class="btn-subtract">- 减法</button>
+                <button type="submit" name="operation" value="multiply" class="btn-multiply">×</button>
+                <button type="submit" name="operation" value="divide" class="btn-divide">÷ 除法</button>
+                <button type="submit" name="operation" value="sqrt" class="btn-sqrt">√ 开根号</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result success">
+            结果: {{ result }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="info">
+            服务器地址: http://10.31.84.18:5000
+        </div>
+    </div>
+</body>
+</html>
