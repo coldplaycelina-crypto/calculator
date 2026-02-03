@@ -1,76 +1,129 @@
-# 计算器应用安装指南
+# 🔢 Web 计算器
 
-## 📋 前置要求
+一个基于 Flask 的优雅 Web 计算器应用，支持基础数学运算。
 
-您的系统需要先安装 Python。请按以下步骤操作：
+## ✨ 特性
 
-### 方法 1：安装 Python（推荐）
+- ✅ 加法、减法、乘法、除法
+- ✅ 开根号运算
+- ✅ 响应式设计，支持移动端
+- ✅ 输入验证和错误处理
+- ✅ 局域网访问支持
+- ✅ 优雅的 UI 设计
 
-1. 访问 https://www.python.org/downloads/
-2. 下载最新版本的 Python（建议 3.10 或更高版本）
-3. 运行安装程序
-4. **重要**：安装时勾选 "Add Python to PATH" 选项
-5. 完成安装
+## 📁 项目结构
 
-### 方法 2：使用 Microsoft Store
-
-1. 打开 Microsoft Store
-2. 搜索 "Python"
-3. 安装 Python 3.10 或更高版本
-
-## 🚀 安装和运行步骤
-
-### 1. 安装依赖
-打开命令提示符或 PowerShell，在项目目录下运行：
-```bash
-pip install Flask
+```
+calculator/
+├── src/
+│   └── app.py              # Flask 应用主文件
+├── templates/
+│   └── calculator.html     # HTML 模板
+├── static/
+│   └── css/
+│       └── calculator.css  # 样式文件
+├── start_refactored.bat    # Windows 启动脚本
+├── requirements.txt        # Python 依赖
+├── .gitignore             # Git 忽略规则
+├── README.md              # 项目说明（本文档）
+├── REFACTORING_GUIDE.md   # 重构说明
+├── CHANGELOG.md           # 更新日志
+└── BEFORE_AFTER.md        # 重构对比
 ```
 
-### 2. 启动服务器
+## 🚀 快速开始
+
+### 方法 1: 使用启动脚本（推荐）
+
+双击 `start_refactored.bat` 即可启动
+
+### 方法 2: 手动启动
+
 ```bash
+# 1. 安装依赖
+pip install -r requirements.txt
+
+# 2. 启动服务器
+cd src
 python app.py
 ```
 
-### 3. 访问应用
+### 访问地址
 
 - **本地访问**: http://localhost:5000
 - **局域网访问**: http://10.31.84.18:5000
 
-局域网内的其他设备（如手机、其他电脑）可以通过 `http://10.31.84.18:5000` 访问您的计算器。
+## 📖 使用说明
 
-## 🎯 功能说明
+### 基础运算
 
-- ✅ 加法 (+)
-- ✅ 减法 (-)
-- ✅ 乘法 (×)
-- ✅ 除法 (÷)
-- ✅ 开根号 (√)
+1. 输入第一个数字（必填）
+2. 输入第二个数字（开根号运算不需要）
+3. 选择运算类型：
+   - **+ 加法**: 两个数相加
+   - **- 减法**: 第一个数减去第二个数
+   - **× 乘法**: 两个数相乘
+   - **÷ 除法**: 第一个数除以第二个数
+   - **√ 开根号**: 对第一个数开平方根
 
-## 📱 局域网访问提示
+### 错误处理
 
-1. 确保您的笔记本和要访问的设备在同一个 Wi-Fi 网络
-2. 确保 Windows 防火墙允许 Python 通信
-3. 如果无法访问，请检查防火墙设置
+- ✅ 除数不能为零
+- ✅ 不能对负数开根号
+- ✅ 输入验证
+- ✅ 详细的错误提示
 
-## 🛠️ 防火墙设置
+## 🛠️ 技术栈
 
-如果其他设备无法访问，请按以下步骤配置防火墙：
+- **后端**: Python 3.x + Flask
+- **前端**: HTML5 + CSS3
+- **模板引擎**: Jinja2 (Flask 内置)
 
-1. 打开 Windows 防火墙设置
-2. 点击"允许应用通过防火墙"
-3. 找到 Python 或添加规则
-4. 允许专用和公用网络访问
-5. 或运行以下命令：
-```powershell
-New-NetFirewallRule -DisplayName "Python Flask Server" -Direction Inbound -LocalPort 5000 -Protocol TCP -Action Allow
-```
+## 📝 开发
 
-## 📝 项目文件
+### 修改样式
 
-- `app.py` - Flask 应用主文件
-- `requirements.txt` - Python 依赖列表
-- `README.md` - 本说明文件
+编辑 `static/css/calculator.css`
+
+### 修改界面
+
+编辑 `templates/calculator.html`
+
+### 添加功能
+
+编辑 `src/app.py`
+
+## 🔄 版本历史
+
+查看 [CHANGELOG.md](CHANGELOG.md) 了解详细更新记录
+
+### v2.0.0 - 2026-02-03（当前版本）
+
+- ✨ 代码重构，分离 HTML 和 CSS
+- ✨ 优化项目结构
+- ✨ 添加 `.gitignore` 和 `requirements.txt`
+- 🔧 提升代码可维护性
+
+查看 [BEFORE_AFTER.md](BEFORE_AFTER.md) 了解重构详情
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+查看 [REFACTORING_GUIDE.md](REFAFACTORING_GUIDE.md) 了解项目结构说明
+
+## 📄 许可证
+
+MIT License
+
+## 👨‍💻 作者
+
+[coldplaycelina-crypto](https://github.com/coldplaycelina-crypto)
+
+## 🌟 致谢
+
+感谢所有贡献者的支持！
 
 ---
 
-祝您使用愉快！🎉
+如有问题或建议，欢迎提交 Issue！
