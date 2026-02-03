@@ -1,0 +1,8 @@
+============================================================
+正在启动计算器服务器...
+============================================================
+
+Traceback (most recent call last):
+  File "c:\Users\Celina\CodeBuddy\20260203184504\run_server.py", line 19, in <module>
+    print("\u2713 应用已加载")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2713' in position 0: illegal multibyte sequence
